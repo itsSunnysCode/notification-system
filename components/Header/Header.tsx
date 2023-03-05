@@ -9,9 +9,8 @@ import Notifications from "~/components/notifications";
 /*styles */
 import styles from "./Header.styles";
 
-function Header() {
+const Header = () => {
   const {state:{userData}} = useContext(UserContext);
-  console.log(useContext(UserContext));
   const { classes } = styles();
   return (
     <div className={classes.root}>

@@ -3,33 +3,30 @@ import React, { createContext, useReducer, ReactNode, useEffect } from 'react';
 /*Utils */
 import { mockSuccessAPI } from '~/utils/mockAPI'
 import tc from "~/utils/tc";
-
+import { userData } from '~/utils/mockData';
 /*actions */
 import { actions } from './actions';
 
 /*type */
-import { Action, UserState } from './types';
+import { Action, UserState } from '~/types';
 
 /*reducer */
 import { userReducer } from './userReducer';
 
 
-// Define the shape of the context object
-interface ContextProps {
-  state: UserState;
-  dispatch: React.Dispatch<Action>;
-}
+// interface ContextProps {
+//   state: UserState;
+//   dispatch: React.Dispatch<Action>;
+// }
 
-// Create the initial state
 const initialState: UserState = {
-  userData: 0,
-  notifications:[]
+  userData: undefined,
 };
 
 
 
 // Create the context object
-export const UserContext = createContext<ContextProps>({
+export const UserContext = createContext<any>({
   state: initialState,
   dispatch: () => {}
 });
@@ -48,6 +45,9 @@ export const UserProvider = ({ children }: {
 
   const fetchUser = async () => { 
     const [error, res] = await tc(mockSuccessAPI());
+    if(res?.isSuccess) {
+      boundActions.fillUserData(userData);
+    }
   }
 
   useEffect(() => {

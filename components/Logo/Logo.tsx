@@ -2,7 +2,7 @@ import React from 'react'
 
 /*styles */
 import styles from "./Logo.styles";
-function Logo() {
+const Logo =()=> {
   const {classes} = styles();
   return (
     <div className={classes.root}>

@@ -1,50 +1,27 @@
-import React from 'react'
-const notifications = [
-  {
-    title:"This is a sample notification",
-    type:"event",
-    createdAt:"",
-    isRead:1
-  },
-  {
-    title:"This is a sample notification",
-    type:"event",
-    createdAt:"",
-    isRead:1
-  },
-  {
-    title:"This is a sample notification",
-    type:"event",
-    createdAt:"",
-    isRead:1
-  },
-  {
-    title:"This is a sample notification",
-    type:"event",
-    createdAt:"",
-    isRead:1
-  },
-  {
-    title:"This is a sample notification",
-    type:"event",
-    createdAt:"",
-    isRead:1
-  },
-  {
-    title:"This is a sample notification",
-    type:"event",
-    createdAt:"",
-    isRead:1
-  },
+import React, { useContext } from "react";
+/*contexts */
+import { UserContext } from "~/globals/UserContext";
+/*componets */
+import NotificationTab from "./NotificationTab";
+/*styles */
+import styles from "./Notifications.styles";
+/*types */
+import { NotificationType } from "~/types";
 
-]
-function NotificationsList() {
+const NotificationsList = () => {
+  const {
+    state: { userData },
+  } = useContext(UserContext);
+
+  const { classes } = styles();
+
   return (
-    <div>
-      sdfsdf
+    <div className={classes.notificationList}>
+      {userData?.notifications?.map((item: NotificationType) => (
+        <NotificationTab key={item?.id} details={item} />
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default NotificationsList
-
+export default NotificationsList;

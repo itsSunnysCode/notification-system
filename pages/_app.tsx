@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 
 /*types */
 import type { AppProps } from "next/app";
+/*styles */
 import "~/styles/global.css";
 /*contexts */
 import { UserProvider } from "~/globals/UserContext";

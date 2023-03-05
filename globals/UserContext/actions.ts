@@ -1,13 +1,19 @@
 /*types */
 import { actionTypes } from "./actionTypes";
 /*action types */
-import {Action} from "./types";
+import { Action } from "~/types";
 
-const fillUserData = (dispatch:React.Dispatch<Action>) => (payload:any) => {
+const fillUserData = (dispatch: React.Dispatch<Action>) => (payload: any) => {
   dispatch({
     type: actionTypes.fillUserData,
-    payload:payload
+    payload: payload,
   });
 };
 
-export const actions:any = {fillUserData}
+const addNotification = (dispatch: React.Dispatch<Action>) => (payload: any) => {
+  dispatch({
+    type: actionTypes.addNotification,
+    payload: payload,
+  });
+};
+export const actions: any = { fillUserData,addNotification};
