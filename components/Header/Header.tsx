@@ -5,7 +5,7 @@ import { UserContext } from "~/globals/UserContext";
 
 /*components */
 import Logo from "~/components/Logo";
-import Notifications from "~/components/notifications";
+import Notifications from "~/components/Notifications";
 /*styles */
 import styles from "./Header.styles";
 
