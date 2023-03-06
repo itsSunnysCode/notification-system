@@ -1,8 +1,8 @@
 import React from 'react'
+import { useRouter } from "next/router";
 
 /*styles */
 import styles from "./Logo.styles";
-import { useRouter } from "next/router";
 
 const Logo =()=> {
   const router = useRouter()

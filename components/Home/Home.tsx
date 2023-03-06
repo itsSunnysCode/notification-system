@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from "react";
 
 /*components */
 import OrganizationTab from "~/components/common/OrganizationTab";
-import Button from "~/components/common/Button";
 import Simulator from "./Simulator";
 /*styles */
 import styles from "./Home.styles";

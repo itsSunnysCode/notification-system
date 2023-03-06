@@ -9,8 +9,11 @@ const styles = makeStyles()(() => ({
   notificationList:{
     width:"320px",
     padding:"10px",
+    maxHeight:"320px",
+    overflow:"scroll",
     [breakpoints.sm] :{
-      width:"100% "
+      width:"100% ",
+      maxHeight:"unset"
     }
   },
   badge: {

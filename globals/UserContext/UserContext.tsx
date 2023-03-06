@@ -1,6 +1,6 @@
 
 import React, { createContext, useReducer, ReactNode, useEffect } from 'react';
-/*Utils */
+/*utils */
 import { mockSuccessAPI } from '~/utils/mockAPI'
 import tc from "~/utils/tc";
 import { userData } from '~/utils/mockData';

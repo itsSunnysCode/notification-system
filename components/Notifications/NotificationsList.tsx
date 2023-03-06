@@ -8,7 +8,6 @@ import styles from "./Notifications.styles";
 /*types */
 import { NotificationType, OrganizationType } from "~/types";
 /*utils */
-import { notificationTypes } from "~/utils/notificationTypes";
 import { organizationsData } from "~/utils/mockData";
 
 const NotificationsList = () => {
@@ -48,6 +47,7 @@ const NotificationsList = () => {
     });
     return notificationCopy;
   };
+  {/*this should be wrapped in infinite scroller*/}
   return (
     <div className={classes.notificationList}>
       {notificationWrapper(userData?.notifications)?.map(
