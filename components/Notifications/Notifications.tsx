@@ -14,17 +14,17 @@ import { UserContext } from "~/globals/UserContext";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 /*styles */
 import styles from "./Notifications.styles";
+import { NotificationType } from "~/types";
 
 const Notifications = () => {
   const { isMobile } = useIsMobile();
-  const {classes} = styles();
+  const { classes } = styles();
   const {
     state: { userData },
-    setMarkZero
+    setMarkZero,
   } = useContext(UserContext);
   const router = useRouter();
-  const [anchorEl, setAnchorEl] =
-    useState<HTMLButtonElement | null>(null);
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setMarkZero(true);
@@ -35,13 +35,17 @@ const Notifications = () => {
       setAnchorEl(event.currentTarget);
     }
   };
-console.log("z",userData);
+  console.log("z", userData);
   return (
     <div>
       <IconButton onClick={handleClick}>
         <Badge
           badgeContent={
-            userData?.markZero?0: userData?.notifications?.filter((d) => !d?.isRead)?.length
+            userData?.markZero
+              ? 0
+              : userData?.notifications?.filter(
+                  (d: NotificationType) => !d?.isRead
+                )?.length
           }
           color="primary"
           classes={{ badge: classes.badge }}
