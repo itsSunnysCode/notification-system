@@ -25,8 +25,11 @@ const styles = makeStyles()(() => ({
     ":hover":{
       background:"#f2f3f5"
     },
+    "& > div":{
+      flex:"80%"
+    },
     "& > div > p":{
-      fontSize:"14px"
+      fontSize:"14px",
     },
     "& > span":{
       backgroundColor:"#2E89FF",

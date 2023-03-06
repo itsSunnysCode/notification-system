@@ -7,7 +7,8 @@ const styles = makeStyles()(() => ({
   root: {
    background:variables.white,
    color:variables.black,
-   fontSize:"2rem"
+   fontSize:"2rem",
+   cursor:"pointer"
   },
 }));
 

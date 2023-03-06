@@ -16,4 +16,16 @@ const addNotification = (dispatch: React.Dispatch<Action>) => (payload: any) => 
     payload: payload,
   });
 };
-export const actions: any = { fillUserData,addNotification};
+const fillNotification = (dispatch: React.Dispatch<Action>) => (payload: any) => {
+  dispatch({
+    type: actionTypes.fillNotification,
+    payload: payload,
+  });
+};
+const setMarkZero = (dispatch: React.Dispatch<Action>) => (payload: any) => {
+  dispatch({
+    type: actionTypes.setMarkZero,
+    payload: payload,
+  });
+};
+export const actions: any = { fillUserData,addNotification, fillNotification, setMarkZero};

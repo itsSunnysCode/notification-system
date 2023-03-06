@@ -8,17 +8,12 @@ import Simulator from "./Simulator";
 import styles from "./Home.styles";
 /*contexts */
 import { UserContext } from "~/globals/UserContext";
+/*types */
+import { OrganizationType } from "~/types";
 /*utils */
 import { organizationsData } from "~/utils/mockData";
 import { mockSuccessAPI } from "~/utils/mockAPI";
 import tc from "~/utils/tc";
-
-interface OrganizationType {
-  id: string;
-  name: string;
-  invoicesGenerated: number;
-  approvedCampaigns: string[];
-}
 
 const Home = () => {
   const { classes } = styles();
@@ -42,13 +37,11 @@ const Home = () => {
     fetchOrganizations();
   }, []);
 
-  const addNotifications = (): void => {
-    //
-  };
-
   return (
     <div className={classes.root}>
-      <p>Hi {userData?.name}, Welcome to your dashboard</p>
+      {userData?.name ? (
+        <p>Hi {userData?.name}, Welcome to your dashboard</p>
+      ) : null}
       {loading ? (
         <p className={classes.loadingOrganization}>Loading organizations...</p>
       ) : (
@@ -59,14 +52,14 @@ const Home = () => {
         </div>
       )}
       <span>
-        <b>*</b>Below Section is just for simulating few scenarios, this WON'T exist on production app<b>*</b>
+        <b>*</b>Below Section is just for simulating few scenarios, this WON'T
+        exist on production app<b>*</b>
       </span>
       <div>
-        <Simulator/>
+        <Simulator />
       </div>
     </div>
   );
 };
 
 export default Home;
-//TODO:customize mock api and add lodader

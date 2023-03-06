@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import IconButton from "@mui/material/IconButton";
 import Popover from "@mui/material/Popover";
@@ -16,28 +16,31 @@ import styles from "./Notifications.styles";
 
 const Notifications = () => {
   const { isMobile } = useIsMobile();
-  const { classes } = styles();
+  const {classes} = styles();
   const {
     state: { userData },
+    setMarkZero
   } = useContext(UserContext);
   const router = useRouter();
   const [anchorEl, setAnchorEl] =
-    React.useState<HTMLButtonElement | null>(null);
+    useState<HTMLButtonElement | null>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setMarkZero(true);
+    //api for marking zero will be here so badge wont be there on next time.
     if (isMobile) {
       router.push("/notifications");
     } else {
       setAnchorEl(event.currentTarget);
     }
   };
-
+console.log("z",userData);
   return (
     <div>
       <IconButton onClick={handleClick}>
         <Badge
           badgeContent={
-            userData?.notifications?.filter((d) => !d?.isRead)?.length
+            userData?.markZero?0: userData?.notifications?.filter((d) => !d?.isRead)?.length
           }
           color="primary"
           classes={{ badge: classes.badge }}

@@ -18,6 +18,22 @@ export const userReducer = (state: UserState, action: Action) => {
           ],
         },
       };
+    case actionTypes.fillNotification:
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          notifications: action.payload,
+        },
+      };
+    case actionTypes.setMarkZero:
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          markZero:action.payload
+        },
+      };  
     default:
       return state;
   }

@@ -64,7 +64,7 @@ const titleGenerator = (type:string) => {
   let message;
   switch (type) {
     case notificationTypes.campaignLandingPage:
-      message="New Landing Page Added"
+      message="New Landing Page Added for a campaign"
       break;
     case notificationTypes.referral:
       message="A New User Signed up using your referral"
@@ -83,12 +83,13 @@ const titleGenerator = (type:string) => {
 const Simulator = () => {
   const {
     state: { userData },
-    addNotification
+    addNotification,
+    setMarkZero
   } = useContext(UserContext);
   const [typeOfNotification, setTypeOfNotification] = useState("");
   const [campaign, setCampaign] = useState("");
-  console.log("z",useContext(UserContext));
   const addNotifications = () => {
+    setMarkZero(false);
     addNotification({
       id: Math.random(),
       title: titleGenerator(typeOfNotification),

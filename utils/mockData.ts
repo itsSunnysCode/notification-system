@@ -19,22 +19,13 @@ export const organizationsData = [
 export const notifications = [
   {
     id: 1,
-    title: "New Landing page added",
+    title: "New Landing Page Added for a campaign",
     type: "CAMPAIGN_LANDING_PAGE",
     created: "2023-03-01T18:25:43.511Z",
     isRead: 0,
     campaignId:"camp3",
-    organizationId:null
-
-  },
-  {
-    id: 2,
-    title: "New Landing page added",
-    type: "CAMPAIGN_LANDING_PAGE",
-    created: "2023-02-27T18:25:43.511Z",
-    isRead: 0,
-    campaignId:"camp1",
-    organizationId:null
+    organizationId:null,
+    landingPageId:323
 
   },
   {
@@ -71,5 +62,6 @@ export const userData = {
   name:"Himanshu Sain",
   id:123123,
   role:"consumer",
-  notifications
+  notifications,
+  markZero:false
 }
